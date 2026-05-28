@@ -1,4 +1,4 @@
-const { showMainMenu } = require("./menu");
+const { showMainMenu, showObjectsMenu } = require("./menu");
 const { closeApp, clearScreen, ask } = require("./utils");
 
 /**
@@ -22,8 +22,26 @@ async function startApp() {
             case "2":
                 // TODO: Объекты мониторинга
                 clearScreen();
-                console.log("🏊 Объекты мониторинга — пока пусто. Реализуй меня!");
-                await ask("\nНажми Enter, чтобы вернуться в меню...");
+                const choice1 = await (showObjectsMenu());
+
+                switch (choice1) {
+                    case "1":
+                        clearScreen();
+                        console.log("Список ферм:");
+                        await ask("\nНажми Enter, чтобы вернуться в меню...");
+                        break;
+                    
+                    case "2":
+                        clearScreen();
+                        console.log("Создать новую ферму");
+                        await ask("\nНажми Enter, чтобы вернуться в меню...");
+
+                    case "0":
+                        clearScreen();
+                        // startApp();
+                    
+                    }
+
                 break;
 
             case "3":
@@ -41,11 +59,20 @@ async function startApp() {
 
             default:
                 // Неизвестная команда — просто покажем меню заново
+                clearScreen();
+                console.log('такой команды пока не существует :(');
+                await ask('\nНажми Enter, чтобы вернуться в меню...');
                 break;
         }
     }
 
     closeApp();
 }
+
+// async function chooseObject() {
+//     clearScreen();
+//     console.log('nihao');
+//     console.log(`bro uv chosen ${choice}`);
+// }
 
 module.exports = { startApp };
