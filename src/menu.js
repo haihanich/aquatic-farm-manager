@@ -33,7 +33,6 @@ async function showObjectsMenu() {
     printSeparator();
 
     const choice1 = await ask("Выберите действие: ");
-    // chooseObject();
     return choice1;
 }
 

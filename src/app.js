@@ -1,5 +1,6 @@
 const { showMainMenu, showObjectsMenu } = require("./menu");
 const { closeApp, clearScreen, ask } = require("./utils");
+const { switchShowObjectsMenu } = require("./submenus");
 
 /**
  * Главный цикл приложения.
@@ -23,24 +24,7 @@ async function startApp() {
                 // TODO: Объекты мониторинга
                 clearScreen();
                 const choice1 = await (showObjectsMenu());
-
-                switch (choice1) {
-                    case "1":
-                        clearScreen();
-                        console.log("Список ферм:");
-                        await ask("\nНажми Enter, чтобы вернуться в меню...");
-                        break;
-                    
-                    case "2":
-                        clearScreen();
-                        console.log("Создать новую ферму");
-                        await ask("\nНажми Enter, чтобы вернуться в меню...");
-
-                    case "0":
-                        clearScreen();
-                        // startApp();
-                    
-                    }
+                switchShowObjectsMenu(choice1);
 
                 break;
 
@@ -69,10 +53,5 @@ async function startApp() {
     closeApp();
 }
 
-// async function chooseObject() {
-//     clearScreen();
-//     console.log('nihao');
-//     console.log(`bro uv chosen ${choice}`);
-// }
 
 module.exports = { startApp };
