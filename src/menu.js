@@ -1,4 +1,5 @@
 const { ask, clearScreen, printSeparator } = require("./utils");
+// const { chooseObject } = require("./app.js");
 
 /**
  * Показывает главное меню и возвращает выбор пользователя.
@@ -21,4 +22,18 @@ async function showMainMenu() {
     return choice;
 }
 
-module.exports = { showMainMenu };
+async function showObjectsMenu() {
+    clearScreen();
+    console.log("2. Объекты мониторинга");
+    printSeparator();
+    console.log("1. Показать все фермы");
+    console.log("2. Создать новую ферму");
+    console.log("0. Назад");
+    console.log("");
+    printSeparator();
+
+    const choice1 = await ask("Выберите действие: ");
+    return choice1;
+}
+
+module.exports = { showMainMenu, showObjectsMenu };
