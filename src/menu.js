@@ -1,5 +1,4 @@
 const { ask, clearScreen, printSeparator } = require("./utils");
-// const { chooseObject } = require("./app.js");
 
 /**
  * Показывает главное меню и возвращает выбор пользователя.
@@ -18,8 +17,7 @@ async function showMainMenu() {
     console.log("");
     printSeparator();
 
-    const choice = await ask("Выберите пункт меню: ");
-    return choice;
+    return await ask("Выберите пункт меню: ");
 }
 
 async function showObjectsMenu() {
@@ -32,8 +30,7 @@ async function showObjectsMenu() {
     console.log("");
     printSeparator();
 
-    const choice1 = await ask("Выберите действие: ");
-    return choice1;
+    return await ask("Выберите действие: ");
 }
 
 module.exports = { showMainMenu, showObjectsMenu };

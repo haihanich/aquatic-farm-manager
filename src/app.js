@@ -23,8 +23,7 @@ async function startApp() {
             case "2":
                 // TODO: Объекты мониторинга
                 clearScreen();
-                const choice1 = await (showObjectsMenu());
-                switchShowObjectsMenu(choice1);
+                await switchShowObjectsMenu();
 
                 break;
 
